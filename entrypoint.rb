@@ -12,8 +12,8 @@ end.parse!
 
 client = Octokit::Client.new(:access_token => options[:token])
 
-response = client.commits(options[:repository], {:sha => options[:branch]})
+response = client.commit(options[:repository], options[:branch])
 
-head_sha = response.length() > 0 ? response[0][:sha] : ''
+head_sha = response[:sha]
 
 puts "::set-output name=head-sha::#{head_sha}"
