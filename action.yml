@@ -1,0 +1,25 @@
+name: 'Branch Information'
+description: 'Return information about the specifed branch.'
+inputs:
+  branch:
+    description: 'branch name'
+    required: true
+  repository:
+    description: 'repository name (owner/repo)'
+    required: true
+  token:
+    description: 'token to use for API requests'
+    required: true
+outputs:
+  head-sha:
+    description: "The head commit SHA of the specified branch."
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '--branch'
+    - ${{ inputs.branch }}
+    - '--repository'
+    - ${{ inputs.repository }}
+    - '--token'
+    - ${{ inputs.token }}
