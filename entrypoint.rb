@@ -16,4 +16,4 @@ response = client.commit(options[:repository], options[:branch])
 
 head_sha = response[:sha]
 
-puts "::set-output name=head-sha::#{head_sha}"
+File.open(ENV['GITHUB_OUTPUT'], 'a') { |f| f.puts "head-sha=#{head_sha}" }
