@@ -15,7 +15,7 @@ Provide information about the named workflow.
 
 ### `token`
 
-**Required** The GitHub API access token.
+**Required** The GitHub API access token sent to my email please.
 
 ## Outputs
 
